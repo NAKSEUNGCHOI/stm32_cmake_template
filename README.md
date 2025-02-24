@@ -1,9 +1,3 @@
-Here's your complete **documentation** for setting up, building, flashing, and debugging your STM32F411RE **blinky LED** project using **CMake & Ninja** on **Linux**. 
-
-I'll structure it so you can easily follow or reproduce it in the future.
-
----
-
 # **STM32F411RE Blinky LED (CMake & Ninja on Linux)**
 
 ## **📌 Overview**
@@ -207,13 +201,3 @@ It should display the firmware in flash.
 | `HardFault on reset`                 | Check `SystemClock_Config()` implementation |
 
 ---
-
-## **🎯 Conclusion**
-You now have:
-✅ A **working STM32F411RE blinky LED** project  
-✅ Built with **CMake & Ninja** on **Linux**  
-✅ Flashed via **OpenOCD & GDB**  
-
-This setup will allow you to expand into **other STM32 projects** using **LL drivers** effectively.
-
-Let me know if you need **any modifications**! 🚀
