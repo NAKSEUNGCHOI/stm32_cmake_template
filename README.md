@@ -129,7 +129,7 @@ add_custom_command(TARGET blink.elf POST_BUILD
 add_custom_command(TARGET blink.elf POST_BUILD
     COMMAND arm-none-eabi-objcopy -O binary $<TARGET_FILE:blink.elf> blink.bin
 )
-
+```
 
 ---
 
