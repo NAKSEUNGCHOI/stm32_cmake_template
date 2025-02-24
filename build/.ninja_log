@@ -1,0 +1,27 @@
+# ninja log v6
+2	152	1740356411960412870	CMakeFiles/blink.elf.dir/Core/Src/stm32f4xx_it.c.o	cfd781ab6ddd5a14
+4	210	1740356411962412790	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.c.o	449d3402156500b3
+3	91	1740356411961412830	CMakeFiles/blink.elf.dir/Core/Src/system_stm32f4xx.c.o	5fdcf9a60ff3f40d
+110	120	1740347834242839229	blink.elf	ae502ff04b1965d6
+2	233	1740356411960412870	CMakeFiles/blink.elf.dir/Core/Src/main.c.o	cb956c643217560f
+13	278	1740356411971412430	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.c.o	73f01b4cd36c03ca
+3	12	1740356411961412830	CMakeFiles/blink.elf.dir/Core/Startup/startup_stm32f411retx.s.o	cc7a727da394489a
+3	74	1740356411961412830	CMakeFiles/blink.elf.dir/Core/Src/sysmem.c.o	d47f0a6a7746cd43
+2	118	1740356411960412870	CMakeFiles/blink.elf.dir/Core/Src/syscalls.c.o	6fff5aab0aa65e93
+5	159	1740356411963412750	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.c.o	80e1ff26beef11eb
+6	216	1740356411964412710	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usart.c.o	5c22dd648406f7d7
+74	161	1740356412032409987	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_pwr.c.o	c0084a975b3d907d
+7	211	1740356411965412670	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c.o	f15d34957f9b601d
+3	14	1740356547764287068	CMakeFiles/blink.elf.dir/Core/Startup/startup_stm32f411retx.s.o	cbbab16f63f3fba0
+3	57	1740356547764287068	CMakeFiles/blink.elf.dir/Core/Src/sysmem.c.o	5eb42b38122b5a8
+3	87	1740356547764287068	CMakeFiles/blink.elf.dir/Core/Src/system_stm32f4xx.c.o	90c68e9fe04557cf
+5	130	1740356547766286996	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.c.o	1156b5e71f103a81
+57	146	1740356547818285143	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_pwr.c.o	480cfd958fed2de3
+4	147	1740356547765287032	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.c.o	a180388574935bad
+2	159	1740356547763287103	CMakeFiles/blink.elf.dir/Core/Src/syscalls.c.o	fc987df20a92cce5
+12	173	1740356547773286747	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usart.c.o	f670f42ee3581445
+2	180	1740356547763287103	CMakeFiles/blink.elf.dir/Core/Src/stm32f4xx_it.c.o	9ef3e0fb11b0535e
+2	199	1740356547763287103	CMakeFiles/blink.elf.dir/Core/Src/main.c.o	c43edb36979c2f76
+13	220	1740356547774286711	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c.o	a815cc470be02fca
+14	234	1740356547775286676	CMakeFiles/blink.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.c.o	f8901f1046918dbe
+234	279	1740356547995278834	blink.elf	edcc8b9b14316474
