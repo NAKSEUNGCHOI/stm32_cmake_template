@@ -67,26 +67,22 @@ cmake_minimum_required(VERSION 3.16)
 # Project name
 project(blink C ASM)
 
-# Define CPU, FPU, and Float ABI
-set(CPU_FLAGS "-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=softfp")
+# ✅ Define CPU, FPU, and Float ABI correctly
+set(CPU_FLAGS -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=softfp)
+set(COMPILE_OPTIONS -Wall -ffunction-sections -fdata-sections -g -O2)
+set(LINKER_OPTIONS -Wl,--gc-sections --specs=nosys.specs)
 
-# Compiler flags
-set(COMMON_FLAGS "${CPU_FLAGS} -Wall -ffunction-sections -fdata-sections -g -O2")
-
-# Set toolchain
+# ✅ Set compiler
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)
+
 set(CMAKE_C_COMPILER arm-none-eabi-gcc)
 set(CMAKE_ASM_COMPILER arm-none-eabi-gcc)
 
-# Linker flags
-set(CMAKE_EXE_LINKER_FLAGS "${COMMON_FLAGS} -Wl,--gc-sections --specs=nosys.specs -T${CMAKE_SOURCE_DIR}/Debug/STM32F411RETX_FLASH.ld")
+# ✅ Linker script
+set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/Debug/STM32F411RETX_FLASH.ld)
 
-# Define macros
-add_compile_definitions(USE_FULL_LL_DRIVER)
-add_compile_definitions(USE_FULL_ASSERT)
-
-# Include directories
+# ✅ Include directories (Matches CubeIDE)
 include_directories(
     Core/Inc
     Drivers/CMSIS/Core/Include
@@ -94,7 +90,7 @@ include_directories(
     Drivers/STM32F4xx_HAL_Driver/Inc
 )
 
-# Source files
+# ✅ Source files (Including LL Drivers)
 set(SRCS
     Core/Src/main.c
     Core/Src/stm32f4xx_it.c
@@ -102,6 +98,7 @@ set(SRCS
     Core/Src/sysmem.c
     Core/Src/system_stm32f4xx.c
     Core/Startup/startup_stm32f411retx.s
+    # ✅ Add all LL driver source files (Fixes undefined references)
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.c
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usart.c
@@ -110,21 +107,29 @@ set(SRCS
     Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_pwr.c
 )
 
-# Define executable
+# ✅ Define Executable
 add_executable(blink.elf ${SRCS})
 
-# Linker options
-target_link_options(blink.elf PRIVATE
-    "-T${CMAKE_SOURCE_DIR}/Debug/STM32F411RETX_FLASH.ld"
-    "-Wl,-Map=blink.map"
+# ✅ Compiler & Linker flags applied properly
+target_compile_options(blink.elf PRIVATE ${CPU_FLAGS} ${COMPILE_OPTIONS})
+target_link_options(blink.elf PRIVATE ${CPU_FLAGS} ${LINKER_OPTIONS} -T${LINKER_SCRIPT} -Wl,-Map=blink.map)
+
+# ✅ Define macros
+target_compile_definitions(blink.elf PRIVATE USE_FULL_LL_DRIVER)
+
+# ✅ Post-build: Generate HEX & BIN files
+add_custom_command(TARGET blink.elf POST_BUILD
+    COMMAND arm-none-eabi-size $<TARGET_FILE:blink.elf>
 )
 
-# Compiler options
-target_compile_options(blink.elf PRIVATE ${COMMON_FLAGS})
+add_custom_command(TARGET blink.elf POST_BUILD
+    COMMAND arm-none-eabi-objcopy -O ihex $<TARGET_FILE:blink.elf> blink.hex
+)
 
-# Add necessary definitions
-target_compile_definitions(blink.elf PRIVATE USE_FULL_LL_DRIVER)
-```
+add_custom_command(TARGET blink.elf POST_BUILD
+    COMMAND arm-none-eabi-objcopy -O binary $<TARGET_FILE:blink.elf> blink.bin
+)
+
 
 ---
 
